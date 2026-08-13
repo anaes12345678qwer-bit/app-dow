@@ -21,25 +21,25 @@ import requests
 from flask import Flask
 from threading import Thread
 
-# Flask Keep-Alive Setup
-app = Flask(__name__)
+إعداد Flask Keep-Alive
+app = Flask ( __name__ )
 
-@app.route('/')
-def home():
-    return "Bot is hosted by ATr"
+@ app.route ( '/' )
+دالة  الصفحة الرئيسية ( ) :
+    يُعاد  "البوت مُستضاف بواسطة ATr"
 
-def run_flask():
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host='0.0.0.0', port=port)
+def  run_flask ( ) :
+    port = int ( os. environ . get ( "PORT" , 8080 ) )
+    app.run ( host= '0.0.0.0' , port=port )
 
-def keep_alive():
-    t = Thread ( target=run_flask )
+دالة  keep_alive ( ) :
+    t = Thread  ( target=run_flask )
     t. daemon = True
     t. start ( )
 
 # --- إعدادات ---
 الرمز المميز = '8217648300:AAFh48Jg1liw0ic_6yj_QbyKtRIwZrnpBOI'
-معرّف المالك = 8697661280  # معرّف مستخدم تيليجرام للمطور
+معرّف المالك = 6846407080 # معرّف مستخدم تيليجرام للمطور
 YOUR_USERNAME = 't7_m6'  # اسم مستخدم تيليجرام للمطور
 UPDATE_CHANNEL = 'https://t.me/BlackStarCity'
 FORCE_SUBSCRIBE_CHANNEL_ID = '@BlackStarCity'
