@@ -33,32 +33,32 @@ def run_flask():
     app.run(host='0.0.0.0', port=port)
 
 def keep_alive():
-    t = Thread(target=run_flask)
-    t.daemon = True
-    t.start()
+    t = Thread ( target=run_flask )
+    t. daemon = True
+    t. start ( )
 
-# --- Configuration ---
-TOKEN = '8217648300:AAFh48Jg1liw0ic_6yj_QbyKtRIwZrnpBOI'
-OWNER_ID = 8697661280 # Developer Telegram User ID
-YOUR_USERNAME = 't7_m6' # Developer Telegram Username
+# --- إعدادات ---
+الرمز المميز = '8217648300:AAFh48Jg1liw0ic_6yj_QbyKtRIwZrnpBOI'
+معرّف المالك = 8697661280  # معرّف مستخدم تيليجرام للمطور
+YOUR_USERNAME = 't7_m6'  # اسم مستخدم تيليجرام للمطور
 UPDATE_CHANNEL = 'https://t.me/BlackStarCity'
 FORCE_SUBSCRIBE_CHANNEL_ID = '@BlackStarCity'
-FORCE_SUBSCRIBE_CHANNELS = ['@BlackStarCity', '@BlackStarKing1', '@BlackStarPrime']
+FORCE_SUBSCRIBE_CHANNELS = [ '@BlackStarCity' , '@BlackStarKing1' , '@BlackStarPrime' ]
 
-# Absolute Paths for Directories
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-UPLOAD_BOTS_DIR = os.path.join(BASE_DIR, 'upload_bots')
-IROTECH_DIR = os.path.join(BASE_DIR, 'inf')
-DATABASE_PATH = os.path.join(IROTECH_DIR, 'bot_data.db')
-MAIN_BOT_LOG_PATH = os.path.join(IROTECH_DIR, 'main_bot_log.log')
+المسارات المطلقة للمجلدات
+BASE_DIR = os.path.abspath ( os.path.dirname ( __ file__ ) )​​​
+UPLOAD_BOTS_DIR = os.path.join ( BASE_DIR , ' upload_bots ' )
+IROTECH_DIR = os.path.join ( BASE_DIR , ' inf ' )
+DATABASE_PATH = os.path.join ( IROTECH_DIR , ' bot_data.db ' )
+MAIN_BOT_LOG_PATH = os.path.join ( IROTECH_DIR , ' main_bot_log.log ' )
 
-# Create necessary directories
-os.makedirs(UPLOAD_BOTS_DIR, exist_ok=True)
-os.makedirs(IROTECH_DIR, exist_ok=True)
+# إنشاء الدلائل اللازمة
+os.makedirs ( UPLOAD_BOTS_DIR , exist_ok= True )
+os.makedirs ( IROTECH_DIR , exist_ok= True )
 
-bot = telebot.TeleBot(TOKEN)
+بوت = telebot. TeleBot ( الرمز المميز )
 
-# --- Data Structures ---
+--- هياكل البيانات ---
 bot_scripts = {} # {script_key: {'process': Popen_obj, 'log_file': file_obj, 'file_name': str, 'chat_id': int, 'script_owner_id': int, 'start_time': datetime, 'user_folder': str, 'type': 'py', 'script_key': str}}
 user_files = {} # {user_id: [(file_name, file_type, status, bot_token_id), ...]} - status: 'pending', 'approved', 'rejected'
 user_pagination_state = {} # {user_id: {'current_page': int, 'total_pages': int, 'files': [(file_name, file_type, status, bot_token_id)]}}
